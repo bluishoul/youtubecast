@@ -49,6 +49,8 @@ const getRssFeed = async (
       },
       url: video.url,
       itunesDuration: video.duration,
+      imageUrl: video.image,
+      itunesImage: video.image,
     })
   );
 

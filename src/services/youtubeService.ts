@@ -250,6 +250,11 @@ const getVideosForPlaylist = async (playlistId: string) => {
           description: z.string(),
           publishedAt: z.string(),
           liveBroadcastContent: z.string(),
+          thumbnails: z.object({
+            high: z.object({
+              url: z.string(),
+            }),
+          }),
         }),
       })
     )
@@ -278,6 +283,7 @@ const getVideosForPlaylist = async (playlistId: string) => {
           rawVideo.snippet.liveBroadcastContent,
           rawVideo.status.privacyStatus
         ),
+        image: rawVideo.snippet.thumbnails.high.url,
       };
 
       return video;
